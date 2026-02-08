@@ -11,6 +11,7 @@ body {
   color: white;
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
+  overflow: hidden;
 }
 
 .container {
@@ -24,19 +25,29 @@ body {
   transition: opacity 0.6s ease;
 }
 
+.buttons {
+  margin-top: 30px;
+  display: none;
+}
+
 button {
-  margin-top: 40px;
   padding: 12px 32px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
-  background: #ff4d6d;
-  color: white;
   cursor: pointer;
 }
 
-button:hover {
-  background: #ff2e55;
+#yesBtn {
+  background: #2ecc71;
+  color: white;
+  margin-right: 20px;
+}
+
+#noBtn {
+  background: #e74c3c;
+  color: white;
+  position: absolute;
 }
 </style>
 </head>
@@ -44,7 +55,13 @@ button:hover {
 <body>
   <div class="container">
     <div id="line" class="line"></div>
-    <button onclick="nextLine()">Next 👉</button>
+
+    <div class="buttons" id="buttons">
+      <button id="yesBtn" onclick="yesClicked()">YES 💕</button>
+      <button id="noBtn">NO 😅</button>
+    </div>
+
+    <button id="nextBtn" onclick="nextLine()">Next 👉</button>
   </div>
 
 <script>
@@ -62,21 +79,58 @@ const lines = [
 
 let index = 0;
 const lineDiv = document.getElementById("line");
+const buttonsDiv = document.getElementById("buttons");
+const nextBtn = document.getElementById("nextBtn");
+const noBtn = document.getElementById("noBtn");
 
 function nextLine() {
   lineDiv.style.opacity = 0;
+
   setTimeout(() => {
     lineDiv.innerHTML = lines[index];
     lineDiv.style.opacity = 1;
+
+    // Last line → show YES / NO buttons
+    if (index === lines.length - 1) {
+      nextBtn.style.display = "none";
+      buttonsDiv.style.display = "block";
+    }
+
     index++;
     if (index >= lines.length) index = lines.length - 1;
   }, 300);
 }
 
+// NO button runs away 😈
+function moveNoButton() {
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+// YES clicked ❤️
+function yesClicked() {
+  document.body.innerHTML = `
+    <div style="margin-top:120px; font-size:34px; color:white;">
+      😍❤️<br><br>
+      Naku telusu nuv YES antav ani 😌<br><br>
+      Happy Proposal Day 🌹💍
+    </div>
+  `;
+}
+
+// first line
 nextLine();
 </script>
 </body>
 </html>
 """
 
-components.html(html_code, height=420)
+components.html(html_code, height=520)
