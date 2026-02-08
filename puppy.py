@@ -94,6 +94,7 @@ lines.forEach((text, i) => {
 </html>
 """
 
-components.html(html_code, height=3000)
+components.html(html_code, height=1500)
+
 
 
