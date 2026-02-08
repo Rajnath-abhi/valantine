@@ -74,7 +74,7 @@ const lines = [
   "Life lo logic miss ayina parledhu… nuvvu maatram miss avvakudadhu 😌❤️",
   "Ee Proposal Day roju cheppali anipinchindi…",
   "Cinema ending la kaadu idi… real life start avvali 💫",
-  "So… will you be my Valentine? 🌹💍"
+  "Vani ❤️ … will you be my Valentine? 🌹💍"
 ];
 
 let index = 0;
@@ -90,7 +90,6 @@ function nextLine() {
     lineDiv.innerHTML = lines[index];
     lineDiv.style.opacity = 1;
 
-    // Last line → show YES / NO buttons
     if (index === lines.length - 1) {
       nextBtn.style.display = "none";
       buttonsDiv.style.display = "block";
@@ -119,14 +118,13 @@ noBtn.addEventListener("mouseenter", moveNoButton);
 function yesClicked() {
   document.body.innerHTML = `
     <div style="margin-top:120px; font-size:34px; color:white;">
-      😍❤️<br><br>
+      Vani ❤️ 😍<br><br>
       Naku telusu nuv YES antav ani 😌<br><br>
-      Happy Proposal Day 🌹💍
+      From today… nuv naa Valentine 🌹💍
     </div>
   `;
 }
 
-// first line
 nextLine();
 </script>
 </body>
