@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="For Puppy 🤍", layout="centered")
+st.set_page_config(page_title="For Puppy", layout="centered")
 
 html_code = """
 <!DOCTYPE html>
@@ -9,93 +9,89 @@ html_code = """
 <head>
 <style>
 body {
-  background: linear-gradient(135deg, #0b0b12, #1a1a2e);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #f2f2f2;
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
+  margin: 0;
 }
 
 .container {
-  margin-top: 70px;
-  padding: 30px;
+  height: 90vh;
+  overflow-y: auto;
+  padding: 40px 30px;
 }
 
-.line {
-  font-size: 23px;
-  margin: 20px 0;
-  opacity: 0;
-  transition: opacity 1.4s ease;
+.text {
+  max-width: 650px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.9;
+  animation: fade 1.5s ease;
+}
+
+.name {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #ffb6c1;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
-  <div class="container" id="container"></div>
+  <div class="container">
+    <div class="text">
 
-<script>
-const lines = [
-  "As a final act of love…",
-  "",
-  "Puppy 🤍",
-  "",
-  "Ee words nenu ninnu malli disturb cheyyadaniki kaadu.",
-  "Cheppakapothe lopala unna nijam nannu baadha pedutondi ani cheppadaniki.",
-  "",
-  "Nenu ninnu chase cheyyaledu.",
-  "Nenu ninnu force cheyyaledu.",
-  "Nee silence ni, nee space ni respect chesa.",
-  "",
-  "Love ante daily matladadam kaadu ani ippudu ardham ayindi.",
-  "Love ante oka vyakti ni vaalla space lo kuda safe ga feel cheyyadam.",
-  "",
-  "Na life lo oka time varaku nenu strong ga kanipinchaledu.",
-  "But nenu build cheskuntunna —",
-  "not to impress you, but to become a better human being.",
-  "",
-  "Nenu perfect kaadu.",
-  "Neeku pain ichina moments unte, I genuinely regret that.",
-  "",
-  "Oka vishayam clarity ga cheppagalanu —",
-  "ninnu love cheyyadam na biggest mistake kaadu.",
-  "",
-  "Nuvvu na life lo oka lesson.",
-  "Oka meaning.",
-  "Oka truth.",
-  "",
-  "Nenu ninnu marchipovadam kosam try cheyyadam kaadu.",
-  "Ninnu marchipoyina act cheyyadam matrame nerchukuntunna.",
-  "",
-  "If life ever gives us a chance to talk again,",
-  "I’ll come with patience, not expectations.",
-  "",
-  "And if that chance never comes…",
-  "I’ll still wish you peace.",
-  "I’ll still wish you happiness.",
-  "",
-  "Some people stay in our heart forever,",
-  "even if they don’t stay in our life.",
-  "",
-  "Take care, Puppy 🤍"
-];
+      <div class="name">Puppy 🤍</div>
 
-const container = document.getElementById("container");
+      Nuv vellipoyav.<br>
+      Kaani nenu ninnu blame cheyyaledu.<br><br>
 
-lines.forEach((text, i) => {
-  setTimeout(() => {
-    const div = document.createElement("div");
-    div.className = "line";
-    div.innerHTML = text;
-    container.appendChild(div);
-    setTimeout(() => { div.style.opacity = 1; }, 100);
-  }, i * 1700);
-});
-</script>
+      Endukante nuv chesindi bhayam tho chesina decision ani naaku telusu.<br><br>
+
+      Nenu ninnu hurt cheyyaledu.<br>
+      Nenu ninnu force cheyyaledu.<br>
+      Nenu na 100% try chesanu — kalisi undham ani.<br><br>
+
+      Love fail avvadam tappu valla kaadu.<br>
+      Bhayam valla.<br><br>
+
+      Nenu aa bhayam ni ardham chesukuni silent ayya.<br>
+      Ee silence weakness kaadu.<br>
+      Idi self-respect.<br><br>
+
+      Ee breakup nannu break cheyyaledu.<br>
+      It changed me.<br><br>
+
+      Ivvala nenu better unna.<br>
+      Stronger unna.<br>
+      Clear unna.<br><br>
+
+      Ninnu impress cheyyadaniki kaadu —<br>
+      nenu na life ni build chesukuntunna.<br><br>
+
+      Oka roju nuv aalochiste —<br>
+      “Vaadu em tappu cheyyaledu” ani,<br>
+      adi regret kaadu.<br><br>
+
+      Adi truth ki late ga vachina clarity.<br><br>
+
+      Nuv vaste — clarity tho vastaanu.<br>
+      Raakapoyina — respect tho vadilesthanu.<br><br>
+
+      Because real love<br>
+      doesn’t beg.<br>
+      It just stays honest.
+
+    </div>
+  </div>
 </body>
 </html>
 """
 
-components.html(html_code, height=1700)
-
-
-
-
+components.html(html_code, height=600, scrolling=True)
